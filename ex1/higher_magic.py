@@ -17,22 +17,50 @@ def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
     return combined
 
 
+def airball() -> int:
+    return 10
+
+
 def power_amplifier(base_spell: Callable, multiplier: int) -> Callable:
-    pass
+    def amplified(*args: Any) -> int:
+        return base_spell(*args) * multiplier
+    return amplified
+
+
+def test_condition(target: str) -> bool:
+    if target == "Dragon":
+        return True
+    return False
 
 
 def conditional_caster(condition: Callable, spell: Callable) -> Callable:
-    pass
+    def conditional_func(*args: Any) -> Any:
+        if condition(*args):
+            return spell(*args)
+        return "Spell fizzled"
+    return conditional_func
 
 
 def spell_sequence(spells: list[Callable]) -> Callable:
-    pass
+    def get_sequence(*args: Any) -> list[str]:
+        return [item(*args) for item in spells]
+    return get_sequence
 
 
 def main() -> None:
     print("\nTesting spell combiner...")
     combined = spell_combiner(fireball, heal)
     print(f"Combined spell result: {", ".join(combined("Dragon"))}")
+    print("\nTesting power amplifier...")
+    mega_airball = power_amplifier(airball, 3)
+    print(f"Original: {airball()}, Amplified: {mega_airball()}")
+    print("\nTesting conditional caster...")
+    conditional_func = conditional_caster(test_condition, fireball)
+    print(f"Condition True: {conditional_func("Dragon")}")
+    print(f"Condition False: {conditional_func("Witch")}")
+    print("\nTesting spell sequence...")
+    spells_func = spell_sequence([fireball, heal])
+    print(spells_func("Dragon"))
 
 
 if __name__ == "__main__":
