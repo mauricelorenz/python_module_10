@@ -64,8 +64,8 @@ def main() -> None:
     print("\nTesting memory vault...")
     my_vault = memory_vault()
     my_vault["store"]("test", "Save this!")
-    print(f"Happy path: {my_vault["recall"]("test")}")
-    print(f"Unhappy path: {my_vault["recall"]("fail")}")
+    print(f"Happy path: {my_vault['recall']('test')}")
+    print(f"Unhappy path: {my_vault['recall']('fail')}")
 
 
 if __name__ == "__main__":

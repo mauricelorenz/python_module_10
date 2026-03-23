@@ -33,14 +33,14 @@ def main() -> None:
              {"name": "Casey", "power": 67, "element": "earth"}]
     spells = ["fireball", "tornado", "heal", "meteor"]
     artifacts_sorted = artifact_sorter(artifacts)
-    print(f"{artifacts_sorted[0]["name"]} ({artifacts_sorted[0]["power"]} "
-          f"power) comes before {artifacts_sorted[1]["name"]} "
-          f"({artifacts_sorted[1]["power"]} power)")
+    print(f"{artifacts_sorted[0]['name']} ({artifacts_sorted[0]['power']} "
+          f"power) comes before {artifacts_sorted[1]['name']} "
+          f"({artifacts_sorted[1]['power']} power)")
     mages_filtered = power_filter(mages, 67)
     print("\nTesting power filter...")
     print("Mages with power greater or equal to 67:")
     for mage in mages_filtered:
-        print(f"- {mage["name"]} ({mage["power"]} power)")
+        print(f"- {mage['name']} ({mage['power']} power)")
     print("\nTesting spell transformer...")
     transformed_spells = spell_transformer(spells)
     for spell in transformed_spells:

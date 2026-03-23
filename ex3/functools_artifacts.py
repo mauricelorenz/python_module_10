@@ -70,9 +70,9 @@ def main() -> None:
     print("\nTesting spell dispatcher...")
     spell = spell_dispatcher()
     print(f"int: {spell(50)}")
-    print(f"str: {spell("Fire")}")
-    print(f"list: {spell(["Fire", "Water", "Air"])}")
-    print(f"dict: {spell({"fail": 1})}")
+    print(f"str: {spell('Fire')}")
+    print(f"list: {spell(['Fire', 'Water', 'Air'])}")
+    print(f"dict: {spell({'fail': 1})}")
 
 
 if __name__ == "__main__":
